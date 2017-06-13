@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <script src="../lib/angular/angular.min.js"></script>
+    <script src="../lib/angular-strap-2.3.6/dist/angular-strap.min.js"></script>
+    <script src="../lib/angular-strap-2.3.6/dist/angular-strap.tpl.min.js"></script>
+</head>
+<body>
+
+<div ng-app="myApp" ng-controller="DemoCtrl">
+        <p>名字 : <input type="text" ng-model="name"></p>
+        <h1>Hello {{name}}</h1>
+        <button type="button" class="btn btn-lg btn-primary" data-animation="am-fade-and-scale" data-placement="center"   bs-modal="modal">Click to toggle modal
+            <br>
+            <small>(using an object)</small>
+        </button>
+
+        <!-- You can use a custom html template with the `data-template` attr -->
+        <button type="button" class="btn btn-lg btn-danger" data-animation="am-fade-and-slide-top" data-template-url="modal/docs/modal.demo.tpl.html" bs-modal="modal">Custom Modal
+            <br>
+            <small>(using data-template)</small>
+        </button>
+
+        <!-- You can use a custom html template with the `data-template` attr -->
+        <button type="button" class="btn btn-lg btn-danger" ng-click="showModal()">Modal
+            <br>
+            <small>(using service)</small>
+        </button>
+</div>
+<script>
+    angular.module('myApp', ['mgcrea.ngStrap']);
+    $scope.modal={
+        "title": "Title",
+        "content": "Hello Modal<br />This is a multiline message!"
+    };
+    angular.module('myApp')
+            .controller('DemoCtrl', function($scope, $modal) {
+                // Show a basic modal from a controller
+                var myModal = $modal({title: 'My Title', content: 'My Content', show: true});
+
+                // Pre-fetch an external template populated with a custom scope
+                var myOtherModal = $modal({scope: $scope, template: 'modal/docs/modal.demo.tpl.html', show: false});
+                // Show when some event occurs (use $promise property to ensure the template has been loaded)
+                $scope.showModal = function() {
+                    myOtherModal.$promise.then(myOtherModal.show);
+                };
+            })
+</script>
+</body>
+</html>
