@@ -8,36 +8,28 @@
     <script src="../lib/angular/angular.min.js"></script>
     <script src="../lib/angular-strap-2.3.6/dist/angular-strap.min.js"></script>
     <script src="../lib/angular-strap-2.3.6/dist/angular-strap.tpl.min.js"></script>
-    <link rel="stylesheet" href="../lib/angular-motion/dist/angular-motion.css">
-    <link>
-    <link rel="stylesheet" href="../lib/bootstrap-additions/src/aside/aside.less">
-    <link>
-
+    <link rel="stylesheet" href="../lib/angular-motion/dist/angular-motion.css"/>
+    <link rel="stylesheet" href="../lib/bootstrap-additions/src/aside/aside.less"/>
+    <script src="../jsp/first.js"></script>
 </head>
 <body>
 <div ng-app="myApp" ng-controller="myCtl" >
-    <!-- ngModel is optional -->
-    <input ng-model="namekeason" ng-click="namekeasonF()">
-    <form role="form">
-        <div class="form-group">
-            <label for="name" class="col-sm-4">文本框</label>
-            <textarea class="col-sm-8" rows="3"></textarea>
-        </div>
-    </form>
+        <div class="container" style="width: 800px;height: 400px;background-color: #b9ffcf" >
+            <div class="row">
+                <div class="control-label col-lg-2" style="background-color: #0f0f0f;margin: 2px; width: 300px;height: 50px"></div>
+                <div class="control-label col-lg-2" style="background-color: #0f0f0f;margin: 2px; width: 300px;height: 50px"></div>
+                <div class="control-label col-lg-2" style="background-color: #0f0f0f;margin: 2px; width: 300px;height: 50px"></div>
+                <div class="control-label col-lg-2" style="background-color: #0f0f0f;margin: 2px; width: 300px;height: 50px"></div>
+                <div class="control-label col-lg-2" style="background-color: #0f0f0f;margin: 2px; width: 300px;height: 50px"></div>
+                <div class="control-label col-lg-2" style="background-color: #0f0f0f;margin: 2px; width: 300px;height: 50px"></div>
+                <div class="control-label col-lg-2" style="background-color: #0f0f0f;margin: 2px; width: 300px;height: 50px"></div>
+                <div class="control-label col-lg-2" style="background-color: #0f0f0f;margin: 2px; width: 300px;height: 50px"></div>
+                <div class="control-label col-lg-2" style="background-color: #0f0f0f;margin: 2px; width: 300px;height: 50px"></div>
+                <div class="control-label col-lg-2" style="background-color: #0f0f0f;margin: 2px; width: 300px;height: 50px"></div>
+                <div class="control-label col-lg-2" style="background-color: #0f0f0f;margin: 2px; width: 300px;height: 50px"></div>
 
-</div>
-<script>
-    var app = angular.module('myApp', ['mgcrea.ngStrap']);
-    app.service('$myService',function () {
-       this.myFun = function (str) {
-           console.log('hello'+str);
-       }
-    });
-    app.controller('myCtl', function ($scope,$myService) {
-        $scope.namekeasonF=function ($scope) {
-            $myService.myFun('str');
-        }
-    });
-</script>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
