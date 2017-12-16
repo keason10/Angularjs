@@ -29,7 +29,7 @@ angular.module('mgcrea.ngPlunkr', ['mgcrea.ngStrap.helpers.debounce'])
     '    <script src="//mgcrea.github.io/angular-strap/dist/angular-strap.js" data-semver="' + version + '"></script>\n' +
     '    <script src="//mgcrea.github.io/angular-strap/dist/angular-strap.tpl.js" data-semver="' + version + '"></script>\n' +
     '    <script src="//mgcrea.github.io/angular-strap/docs/angular-strap.docs.tpl.js" data-semver="' + version + '"></script>\n' +
-    '    <script src="app.js"></script>\n' +
+    '    <script src="app_module.js"></script>\n' +
 
     '  </head>\n' +
     '\n' +
@@ -149,7 +149,7 @@ angular.module('mgcrea.ngPlunkr', ['mgcrea.ngStrap.helpers.debounce'])
         }).then(function(results) {
           postData['files[index.html]'] = results[0].replace(/{{ contentHtml }}/i, results[1] || options.contentHtml).replace(/{{ moduleName }}/i, options.moduleName);
           postData['files[style.css]'] = results[2].replace(/{{ contentCss }}/i, results[3] || options.contentCss).replace(/{{ moduleName }}/i, options.moduleName);
-          postData['files[app.js]'] = results[4].replace(/{{ contentJs }}/i, results[5] || options.contentJs).replace(/{{ moduleName }}/i, options.moduleName);
+          postData['files[app_module.js]'] = results[4].replace(/{{ contentJs }}/i, results[5] || options.contentJs).replace(/{{ moduleName }}/i, options.moduleName);
           $plunkr.$isReady = true;
         }));
         return $plunkr.$promise;
