@@ -1,5 +1,6 @@
 /*引入myAppModule模块 中的myAppModuleService
-    m:      module     module中可以引用module
+    module     module中可以引用module，算是程序中的模块
+    m:      绑定的数据对象
     v:      html        引用 controller
     c:      controller  引用 service，factory
  */

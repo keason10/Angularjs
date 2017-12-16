@@ -20,7 +20,65 @@
 <div ng-app="myApp" ng-controller="myCtl1">
         <div ng-include="'rootPage.html'"></div>
         <div ng-click="getList({id:11})">按钮1</div>
-    </div>
+
+        <form name="myForm">
+            <div class="form-group">
+                <div class="col-md-6">
+                    <div>------常见表单- ng-value 设置初始值 sex="woman"------</div>
+                    名字：<input type="text" ng-model="name"><br/>
+
+                    <!--. the scope model needs to be a string, radio 的model 需要是string-->
+                    性别：<input type="radio" ng-model="sex" value="1" data-type="integer">男 &nbsp;&nbsp;&nbsp;
+                    <input type="radio" ng-model="sex"  value="2" data-type="integer">女<br/>
+
+                    专业：<input type="checkbox" ng-model="computer">计算机&nbsp;&nbsp;&nbsp;
+                    <input type="checkbox" ng-model="english" >英语<br>
+
+                    <!--如果要取下拉框的id 和 name 则 如下配置，
+                                     ng-options="item    as  item.name for item in ageList"-->
+                    年龄：<select ng-options="item.id as item.name for item in ageList" ng-model="age" >
+                    <option value="">请选择年龄</option>
+                    </select>
+                    <br>
+
+                    <div>----------值如下-----------------</div><br>
+                    <div>
+                        名字：{{name}}<br>
+                        性别:{{sex}}<br>
+                        专业:计算机{{computer}}-----英语{{english}}<br>
+                        年龄：值{{age}}-----中文{{}}<br>
+                    </div>
+
+                </div>
+
+
+            <!--要有验证条件，必须要有 name && ng-model 属性-->
+            <!--ng-parttrn-->
+                <div class="col-md-6">
+                    <div>------最短:3 最长:5  最小:500 最大:5000 必填 正则表达式:/^[0-9]{3,5}$/-------</div>
+                    输入数字：<input type="number" name="myNum"  ng-model="ageV" ng-min="500" ng-max="5000"
+                                ng-minlength="3" ng-maxlength="5" required ng-pattern="/^[0-9]{3,5}$/"> <br>
+                    <!--$error 是一个对象，对象中包含{属性：true/false} ,$valid 直接显示的是验证的结果-->
+                    <span>myForm.myNum.$error:{{myForm.myNum.$error}}</span><br>
+                    <span>myForm.myNum.$valid:{{myForm.myNum.$valid}}</span><br><br>
+
+                    <!--ng-trim 去掉空格-->
+                    <div>------ng-trim 去掉空格-------</div>
+                    输入文字：<input type="text" name="myText"  ng-model="myText" ng-minlength="3" ng-maxlength="5" required ng-trim="true"> <br>
+                    <span>myText:{{[myText]}}</span><br>
+                    <span>myForm.myNum.$error:{{myForm.myText.$error}}</span><br>
+                    <span>myForm.myNum.$valid:{{myForm.myText.$valid}}</span><br>
+
+                    <span class="error" ng-show="myForm.myNum.$error.minlength">
+                    格式错误 minlength
+                </span>
+                    <span class="error" ng-show="myForm.myNum.$error.maxlength">
+                    格式错误 maxlength
+                </span>
+                </div>
+            </div>
+        </form>
+</div>
 </body>
 </body>
 </html>
